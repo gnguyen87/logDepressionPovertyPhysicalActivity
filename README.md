@@ -1,5 +1,5 @@
 # logDepressionPovertyPhysicalActivity
- Logistica regression analysis to quantify the impact of poverty and physical activity on depression
+ Logistical regression analysis to quantify the impact of poverty and physical activity on depression
 
 We have probably heard the ongoing debate of whether money can make people happy. For our part, money might not make someone happy yet a significant portion of the things that make people happy requires money. Therefore, the lack of wealth might be at the origin of depression of an individual as they do not have the means necessary to do what makes them happy. Do people who are living in poverty experience depression more than those who are not? To get an idea of this relationship, it would be good to answer the question of how does poverty affect depression?
 
