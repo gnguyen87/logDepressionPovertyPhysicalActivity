@@ -102,11 +102,20 @@ depressed_data <-
 # Exploratory Data Analysis 
 
 ```{r,echo=FALSE,message = FALSE, warning=FALSE}
-depressed_data %>% ggplot(aes(y=PhysActive,x=Poverty,fill=factor(Depressed))) +
-  geom_boxplot() + 
-  labs(title = "Figure 1: Relationship Between Poverty, Physical Activity and Depression", y="Physically Active") +
+depressed_data %>% ggplot(aes(y=Poverty,x=factor(Depressed), fill =factor(Depressed) )) +
+  ggdist::stat_halfeye(color = NA, width = 1, alpha = .9) +
+  geom_boxplot(width =.3, alpha = .8) + 
+  facet_grid(~PhysActive) +
+  labs(title = "Figure 1: Relationship Between Poverty, Physical Activity and Depression",
+       y = "Level of Poverty",
+       subtitle= "PhysActive") +
   scale_fill_discrete(name="Depressed")+
-  theme_classic()
+  theme_classic() +
+  theme(axis.title.x = element_blank(),
+        plot.subtitle = element_text(hjust = .5),
+        plot.title = element_text(face = "bold"),
+        axis.text.x = element_blank(), )
+
 ```
 
 From this visualization, we can see that the median poverty values for people who are not physically active are lower (around 2.8 for not depressed and 1.5 for depressed) than the median poverty values for those who are physically active (around 3.5 for not depressed and 2.9 for depressed). The interquartile lengths and ranges between observations that are physically active and are not are noticeably different. While the bins describing those who are physically inactive have their interquartile ranges from about 1.3 to 4.3 for not depressed and from 1 to 2.0 for depressed, those of observations that reported physically active ranges from 1.9 to 5 for not depressed and from 1.4 to 5 for depressed. It is also significant to note that for batches of data under physically active are left-skewed, the batches for data under physically inactive are right-skewed for those that reported for depression yet left-skewed for those that reported for no depression. 
